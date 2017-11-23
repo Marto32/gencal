@@ -14,6 +14,11 @@ a destination path to download the dataset.
 
 Contributions welcome!
 
+## Directions
+
+I haven't had the chance to upload this to pypi yet, so for now, just clone the
+repo and follow the directions in the Example Usage section below to get started.
+
 ## Example Usage
 
 ```python
@@ -42,7 +47,9 @@ date|year|month|day|weekday|weekday_name|weeknumber|is_weekend|is\_business\_day
 Another option would have been to write directly to disk:
 
 ```python
-data_frame = calendar.generate(dest='~/calendar_data.csv', sep=',')
+calendar = Calendar(start_date, end_date, include_holidays=True, holiday_api_key=api_key, country='US')
+
+calendar.generate(dest='~/calendar_data.csv', sep=',')
 ```
 
 ## Field Descriptions
