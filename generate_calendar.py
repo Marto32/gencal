@@ -136,10 +136,12 @@ class Calendar(object):
                     for day in holiday_data:
                         if day['public'] is True: # Public holiday
                             public_holidays.append(day)
-                    first_public_holiday = public_holidays[0]
-                    # List the holiday under its observed date
-                    observed_date = first_public_holiday['observed']
-                    self.holidays[observed_date] = first_public_holiday['name']
+
+                    if len(public_holidays) > 0: # if there are any public holidays
+                        first_public_holiday = public_holidays[0]
+                        # List the holiday under its observed date
+                        observed_date = first_public_holiday['observed']
+                        self.holidays[observed_date] = first_public_holiday['name']
 
                 holiday_data = holiday_data[0]
                 if holiday_data['public'] is True: # Only include public_holidays
