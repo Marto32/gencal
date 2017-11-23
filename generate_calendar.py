@@ -159,7 +159,7 @@ class Calendar(object):
         takes a datetime date object and returns True if it is a public
         holiday on the date.
         """
-        date_key = datetime.datetime.strftime(datetime_object, '%y-%m-%d')
+        date_key = datetime.datetime.strftime(datetime_object, '%Y-%m-%d')
         holiday = self.holidays.get(date_key)
         if holiday is None:
             return (False, np.nan)
