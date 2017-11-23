@@ -152,7 +152,7 @@ class Calendar(object):
         """
         If it's a weekend, return True.
         """
-        return True if weekday_index in (5, 6) else False
+        return True if weekday_index in (6, 7) else False
 
     def _is_holiday(self, datetime_object):
         """
