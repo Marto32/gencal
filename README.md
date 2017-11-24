@@ -4,7 +4,7 @@ Generates a calendar for a customized period of time.
 It also has the option to include holidays for multiple countries once you
 create a [Holiday API](https://holidayapi.com/) api key. You can create a
 free key for historical generation or, with a paid key, you can obtain holiday
-data for future dates.
+data for future dates (I do not have any affiliation with Holiday API).
 
 Your API key can be set as an environment variable assigned to `API_KEY` or
 as an argument when initializing the `Calendar` object.
@@ -15,7 +15,7 @@ Contributions welcome!
 
 ## Directions
 
-I haven't had the chance to upload this to pypi yet, so for now, just clone the repo and follow the directions in the Example Usage section below. To get started, run the following in your terminal:
+I haven't had the chance to upload this to pypi yet, so for now, just clone the repo and follow the directions in the **Example Usage** section below. To get started, run the following in your terminal:
 
 ```
 git clone https://github.com/Marto32/gencal.git
