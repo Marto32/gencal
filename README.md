@@ -34,6 +34,7 @@ To get started, run the following in your terminal:
 ```
 git clone https://github.com/Marto32/gencal.git
 export PATH=$PATH:$(pwd)/gencal
+cd gencal
 python
 ```
 
