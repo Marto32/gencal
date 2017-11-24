@@ -42,7 +42,7 @@ Once in the python shell you can use the library as shown below.
 ## Example Usage
 
 ```python
-from gencal.generate_calendar import Calendar
+from generate_calendar import Calendar
 
 start_date = '2013-01-01'
 end_date = '2016-01-01'
