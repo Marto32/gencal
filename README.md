@@ -15,7 +15,21 @@ Contributions welcome!
 
 ## Directions
 
-I haven't had the chance to upload this to pypi yet, so for now, just clone the repo and follow the directions in the **Example Usage** section below. To get started, run the following in your terminal:
+I haven't had the chance to upload this to pypi yet, so for now, just clone the repo and follow the directions in the **Example Usage** section below.
+
+GenCal requires the following libraries:
+
+ * [Requests](http://docs.python-requests.org/en/master/)
+ * [Pandas](https://pandas.pydata.org/)
+ * [NumPy](http://www.numpy.org/)
+
+It is recommended to create a new virtual environment to house all of these dependencies. If you need help creating a virtual environment, you can follow [this guide](http://docs.python-guide.org/en/latest/dev/virtualenvs/). To install the above packages, run the following in terminal:
+
+```
+pip install requests pandas numpy
+```
+
+To get started, run the following in your terminal:
 
 ```
 git clone https://github.com/Marto32/gencal.git
