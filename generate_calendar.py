@@ -72,19 +72,19 @@ class Calendar(object):
         7: 'Sunday',
     }
 
-    CALENDAR_DATA = {
-        'date': [],
-        'year': [],
-        'month': [],
-        'day': [],
-        'weekday': [],
-        'weekday_name': [],
-        'weeknumber': [],
-        'is_weekend': [],
-        'is_business_day': [],
-        'is_holiday': [],
-        'holiday_name': [],
-    }
+    CALENDAR_KEYS = [
+        'date',
+        'year',
+        'month',
+        'day',
+        'weekday',
+        'weekday_name',
+        'weeknumber',
+        'is_weekend',
+        'is_business_day',
+        'is_holiday',
+        'holiday_name',
+    ]
 
     def __init__(self, start_date_string, end_date_string,
         include_holidays=False, holiday_api_key=os.environ.get('API_KEY'),
@@ -105,10 +105,18 @@ class Calendar(object):
         self.end_date = datetime.datetime.strptime(end_date_string, format)
         self.num_days = (self.end_date - self.start_date).days
         self.include_holidays = include_holidays
+        self.CALENDAR_DATA = self._gen_calendar_data_template()
 
         if include_holidays is True:
             self.holiday_api_key = holiday_api_key
             self.country = country
+
+    def _gen_calendar_data_template(self):
+        """
+        Generates a calendar data template with empty lists assigned to each
+        key in `self.CALENDAR_KEYS`
+        """
+        return { k:[] for k in self.CALENDAR_KEYS }
 
     def _gen_dates(self):
         for day_num in range(self.num_days):
@@ -143,6 +151,7 @@ class Calendar(object):
                         observed_date = first_public_holiday['observed']
                         self.holidays[observed_date] = first_public_holiday['name']
 
+                # Handle records with 1 holiday per day
                 holiday_data = holiday_data[0]
                 if holiday_data['public'] is True: # Only include public_holidays
                     observed_date = holiday_data['observed']
@@ -181,8 +190,7 @@ class Calendar(object):
         the sep argument to define the delimiter.
         """
         if reset:
-            for _,v in self.CALENDAR_DATA.items():
-                del v[:]
+            self.CALENDAR_DATA = self._gen_calendar_data_template()
 
         if self.include_holidays:
             self._get_holidays_from_api()
@@ -208,8 +216,7 @@ class Calendar(object):
             self.CALENDAR_DATA['holiday_name'].append(holiday_name)
             self.CALENDAR_DATA['is_business_day'].append(self._is_business_day(weekday, date))
 
-        calendar = pd.DataFrame(self.CALENDAR_DATA)
-        calendar = calendar[list(self.CALENDAR_DATA.keys())]
+        calendar = pd.DataFrame(self.CALENDAR_DATA)[self.CALENDAR_KEYS]
 
         if dest is None:
             return calendar
