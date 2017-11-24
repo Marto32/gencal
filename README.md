@@ -9,20 +9,26 @@ data for future dates.
 Your API key can be set as an environment variable assigned to `API_KEY` or
 as an argument when initializing the `Calendar` object.
 
-The calendar can be used within python as a pandas DataFrame or you can specify
-a destination path to download the dataset.
+The calendar can be used within python as a pandas DataFrame or you can specify a destination path to download the dataset.
 
 Contributions welcome!
 
 ## Directions
 
-I haven't had the chance to upload this to pypi yet, so for now, just clone the
-repo and follow the directions in the Example Usage section below to get started.
+I haven't had the chance to upload this to pypi yet, so for now, just clone the repo and follow the directions in the Example Usage section below. To get started, run the following in your terminal:
+
+```
+git clone https://github.com/Marto32/gencal.git
+export PATH=$PATH:$(pwd)/gencal
+python
+```
+
+Once in the python shell you can use the library as shown below.
 
 ## Example Usage
 
 ```python
-from generate_calendar import Calendar
+from gencal.generate_calendar import Calendar
 
 start_date = '2013-01-01'
 end_date = '2016-01-01'
