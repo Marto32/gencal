@@ -26,16 +26,22 @@ GenCal requires the following libraries:
 It is recommended to create a new virtual environment to house all of these dependencies. If you need help creating a virtual environment, you can follow [this guide](http://docs.python-guide.org/en/latest/dev/virtualenvs/). To install the above packages, run the following in terminal:
 
 ```
-pip install requests pandas numpy
+pip install -r requirements.txt
 ```
 
-To get started, run the following in your terminal:
+To make things easier, you can also use [Pipenv](https://pipenv.readthedocs.io/en/latest/). Once installed, navigate to the repo and run the following:
+
+```
+pipenv install
+```
+
+To get started, run the following in your terminal (if you don't have pipenv just use `python` on the last line):
 
 ```
 git clone https://github.com/Marto32/gencal.git
 export PATH=$PATH:$(pwd)/gencal
 cd gencal
-python
+pipenv run python
 ```
 
 Once in the python shell you can use the library as shown below.
